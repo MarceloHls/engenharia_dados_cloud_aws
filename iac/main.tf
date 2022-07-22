@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "datalake" {
-  bucket = "datalake-igti-terraform"
+  bucket = "$(var.bucket_name)-$(var.environment)-$(var.account_number)"
   acl = "private"
 
 
@@ -20,4 +20,8 @@ resource "aws_s3_bucket_object" "codigo_python" {
     source = "codigo_python.py"
     etag = filemd5("codigo_python.py")
   
+}
+
+provider "aws" {
+    region = "$(var.region)"
 }
