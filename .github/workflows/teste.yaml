@@ -1,0 +1,41 @@
+name: Test on PRD
+
+on:
+  pull_request:
+    branches: ["'main'"]
+
+
+jobs:
+  test:
+    name: Test on PRD
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses : actions/setup-python@v3
+        with:
+          python-version: "3.10"
+
+      - name: HashiCorp - Setup Terraform
+        uses: hashicorp/setup-terraform@v2.0.0
+
+      - name: "Configure AWS Credentials" 
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secret.AWS_ACCESS_KEY_ID}}
+          aws-secret-access-key: ${{ secret.AWS_SECRET_ACCESS_KEY}}
+          aws-region: a-east-1
+      
+      - name: Apply Iac
+        env :
+          COMMAND_IAC : terraform
+        run: |
+          cd iac
+          $COMMAND_IAC init
+          $COMMAND_IAC validate
+          $COMMAND_IAC plan
+
+  
