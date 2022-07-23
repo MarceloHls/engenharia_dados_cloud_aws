@@ -1,16 +1,16 @@
 variable "bucket_name" {
-    default = "datalake"
+  default = "datalake"
 }
 
 variable "environment" {
-    default = "production"
+  default = "production"
 }
 
 variable "account_number" {
-    default = "123"  
+  default = "123"
 }
 
 
-variable "region" {
-  default = "us-east-1"
+variable "region_name" {
+  default = "sa-east-1"
 }
