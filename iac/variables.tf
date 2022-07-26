@@ -14,3 +14,9 @@ variable "account_number" {
 variable "region_name" {
   default = "sa-east-1"
 }
+
+
+variable "role_iam_id" {
+  default = "RoleLambda"
+  
+}
