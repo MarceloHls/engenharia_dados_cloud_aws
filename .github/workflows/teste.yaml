@@ -29,6 +29,11 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
           aws-region: sa-east-1
       
+      - name: Build lambda patch 
+        run : |
+          sh script/build_lambda_package.sh          
+
+
       - name: Apply Iac
         env :
           COMMAND_IAC : terraform

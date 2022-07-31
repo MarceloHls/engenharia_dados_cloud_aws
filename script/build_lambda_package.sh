@@ -1,4 +1,4 @@
-# cd iac
+cd iac
 
 PACKAGE=package
 
@@ -14,7 +14,7 @@ else
 fi
 
 
-FILE_REQUIREMENTS=../etl/lambda_requirements.txt
+FILE_REQUIREMENTS=../../etl/lambda_requirements.txt
 
 
 if [ -f $FILE_REQUIREMENTS ]
@@ -33,7 +33,7 @@ fi
 
 cd $PACKAGE
 
-LAMBDA_FUNCTION=../etl/lambda_function.py
+LAMBDA_FUNCTION=../../etl/lambda_function.py
 
 if [ -f `$LAMBDA_FUNCTION`]
 then
