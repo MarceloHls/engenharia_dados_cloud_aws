@@ -8,3 +8,5 @@ iac/.terraform.lock.hcl
 .git
 
 *.csv
+
+modulo_1/table_parquet/

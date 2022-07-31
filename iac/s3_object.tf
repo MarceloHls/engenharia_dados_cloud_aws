@@ -1,9 +1,28 @@
-resource "aws_s3_bucket_object" "codigo_python" {
+resource "aws_s3_bucket_object" "codigo_1" {
   bucket = aws_s3_bucket.datalake.id
   key    = "code/python/codigo_python_terraform.py"
   acl    = "private"
-  source = "../codigo_python.py"
-  etag   = filemd5("../codigo_python.py")
+  source = "../etl/lambda_function.py"
+  etag   = filemd5("../etl/lambda_function.py")
 
 }
+
+resource "aws_s3_bucket_object" "codigo_2" {
+  bucket = aws_s3_bucket.datalake.id
+  key    = "code/python/codigo_python_terraform.py"
+  acl    = "private"
+  source = "../etl/codigo_2.py"
+  etag   = filemd5("../etl/codigo_2.py")
+
+}
+
+resource "aws_s3_bucket_object" "codigo_3" {
+  bucket = aws_s3_bucket.datalake.id
+  key    = "code/python/codigo_python_terraform.py"
+  acl    = "private"
+  source = "../etl/codigo_3.py"
+  etag   = filemd5("../etl/codigo_3.py")
+
+}
+
 
